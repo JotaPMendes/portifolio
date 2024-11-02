@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifólio do João</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            scroll-behavior: smooth;
+            font-family: 'Roboto', sans-serif;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.8);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 123, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: color 0.3s, background 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #0056b3;
+            color: #fff !important;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,...");
+        }
+        .hero-section {
+            background: url('images/hero-bg.jpg') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1f0606;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .hero-section p {
+            font-size: 1.5rem;
+        }
+        .hero-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #ffdd57;
+            border: none;
+            color: #007bff;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+        }
+        .hero-button:hover {
+            background-color: #e0c34c;
+            color: #0056b3;
+        }
+        .about-section, .projects-section, .skills-section, .contact-section {
+            padding: 60px 0;
+        }
+        .about-section h1, .projects-section h1, .skills-section h1, .contact-section h1 {
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .about-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            object-position: top;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .about-image:hover {
+            transform: scale(1.05);
+        }
+        .project-card {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .projects-section .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .skills-section .card-body {
+            flex-grow: 1;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .projects-section .card:hover, .skills-section .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-img-top {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .card-img-top:hover {
+            transform: scale(1.05);
+        }
+        .skill-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .skill-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .contact-section {
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+            padding: 60px;
+            border-radius: 10px;
+        }
+        .contact-details {
+            background-color: #2b2b2b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .social-icons img {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            transition: transform 0.3s, filter 0.3s;
+        }
+        .social-icons img:hover {
+            transform: scale(1.3);
+            filter: brightness(1.5);
+        }
+        .card-link {
+            background-color: #007bff;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .card-link:hover {
+            background-color: #0056b3;
+        }
+        .progress {
+            height: 20px;
+            margin-top: 20px;
+        }
+        .progress-bar {
+            background-color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Portfólio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Seja bem vindo ao meu portifólio</h1>
+            <div style="margin-top: 40px;"></div>
+            <a class="hero-button" href="https://docs.google.com/document/d/1eVeDrltNJEXLWtaTM564zDgUDv0D59agoi4g1c-ugEE/edit?tab=t.0">Conheça mais</a>
+        </div>
+    </section>
+
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h1>Sobre</h1>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="C:\Users\marcela.souza\Desktop\portifolio\me.jpeg" alt="Personal Picture" class="about-image rounded-circle">
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Olá, sou o João!</strong> Apaixonado por dados e acredito que cada número conta uma história. Atualmente, trabalho como analista de dados no Rappi, ajudando a equipe a tomar decisões mais informadas e estratégicas.</p>
+                    <p>Tenho experiência em transformar dados brutos em visualizações e planos de ação, sempre focando em otimizar processos e resolver problemas de forma criativa. Uso ferramentas como <strong style="color: #007bff;">SQL, Excel, Python</strong> e <strong style="color: #007bff;">Machine Learning</strong> para atingir resultados que impactam o negócio de forma significativa.</p>
+                    <p>No fim do dia, o que me motiva é ver como minhas análises e insights fazem a diferença no dia a dia da empresa.</p>
+                    <a href="#projects" class="btn btn-primary mt-4">Veja meus projetos</a>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><span class="badge badge-primary">SQL</span></li>
+                                <li class="list-inline-item"><span class="badge badge-primary">Python</span></li>
+                                <li class="list-inline-item"><span class="badge badge-primary">Machine Learning</span></li>
+                                <li class="list-inline-item"><span class="badge badge-primary">Visualização de Dados</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h1>Projetos</h1>
+            <div class="row">
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card project-card">
+                        <img src="C:\Users\marcela.souza\Desktop\portifolio\roupas.jpg" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Classificador de imagens de roupas</b></h5>
+                            <p class="card-text">Este projeto envolve um modelo de classificação de imagens que identifica tipos de roupas, utilizando Python e redes neurais convolucionais (CNNs). A ideia foi aplicar CNNs para treinar o modelo a reconhecer e diferenciar peças com base nas características visuais. Com isso, o modelo processa e classifica cada imagem, ajudando a entender a categoria de cada roupa de forma automática e precisa.</p>
+                            <a href="https://colab.research.google.com/drive/1JJb_gx7LQ9okPpMAOxmLErw8cK1JNNi8?usp=drive_open" class="card-link">Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card project-card">
+                        <img src="C:\Users\marcela.souza\Desktop\portifolio\imdb.jpg" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Classificador de resenhas do IMDB</b></h5>
+                            <p class="card-text">Neste projeto, construí um modelo para classificar resenhas do IMDB, identificando se são positivas ou negativas. Usando Python e técnicas de Processamento de Linguagem Natural (NLP), o modelo analisa o texto das resenhas e aplica regressões para prever a polaridade do sentimento. A proposta é automatizar a análise de sentimento, ajudando a interpretar a recepção dos filmes de forma mais objetiva e rápida.</p>
+                            <a href="https://colab.research.google.com/drive/1KdVzk9cg3rpKwhjypQtUd59aWv0rz5fg?usp=drive_open" class="card-link">Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card project-card">
+                        <img src="C:\Users\marcela.souza\Desktop\portifolio\promotion.jpg" class="card-img-top" alt="Project 3">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><b>Modelo de predição de CPOs</b></h5>
+                            <p class="card-text flex-grow-1">Desenvolvi um modelo de regressão para prever o preço ideal por pedido, ajustado ao comportamento passado dos usuários, à audiência e à vertical. Com Python, técnicas de otimização e machine learning, o modelo reduziu os custos em 37%, mantendo uma perda mínima de apenas 4% na conversão. Esse equilíbrio trouxe mais eficiência para as campanhas do time de CRM.</p>
+                        </div>
+                    </div>
+                </div>                              
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h1>Skills</h1>
+            <div class="row">
+                <div class="col-md-3 d-flex align-items-stretch">
+                    <div class="card skill-card text-center">
+                        <img src="C:\Users\marcela.souza\Desktop\portifolio\python.jpg" class="card-img-top" alt="Python">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Python</b></h5>
+                            <p class="card-text">No meu dia a dia como analista, Python é meu braço direito. Com ele, consigo automatizar processos, explorar grandes volumes de dados e até construir modelos de machine learning. Tenho familiaridade com bibliotecas como Pandas, NumPy e Scikit-Learn, que tornam tudo mais rápido e eficiente.</p>
+                            <a href="https://cursos.alura.com.br/user/joaopaulosouzamendes11/degree-data-science-v377549-377549/certificate" class="card-link">Link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-items-stretch">
+                    <div class="card skill-card text-center">
+                        <img src="C:\Users\marcela.souza\Desktop\portifolio\data_view.jpg" class="card-img-top" alt="Data Visualization">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Data Visualization</b></h5>
+                            <p class="card-text">Acredito que dados precisam ser visualmente claros para contarem uma boa história. Por isso, utilizo ferramentas como Power BI, Matplotlib e Seaborn para criar gráficos e dashboards que simplificam até os insights mais complexos. Meu foco é transformar números em algo que qualquer pessoa possa entender e tomar decisões.</p>
+                            <a href="https://cursos.alura.com.br/user/joaopaulosouzamendes11/course/power-bi-dax-contextos-iteracao/certificate" class="card-link">Link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-items-stretch">
+                    <div class="card skill-card text-center">
+                        <img src="C:\Users\marcela.souza\Desktop\portifolio\sql.jpg" class="card-img-top" alt="SQL">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>SQL</b></h5>
+                            <p class="card-text">Domino SQL para ir fundo nas bases de dados e extrair exatamente o que preciso. Desde queries simples até agregações complexas, SQL é fundamental no meu trabalho. É com ele que busco informações essenciais e consigo responder perguntas de negócio com agilidade.</p>
+                            <a href="#" class="card-link">Link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-items-stretch">
+                    <div class="card skill-card text-center">
+                        <img src="C:\Users\marcela.souza\Desktop\portifolio\excel.jpg" class="card-img-top" alt="Data Storytelling">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Excel / Sheets</b></h5>
+                            <p class="card-text">Ferramentas de planilha é o meu dia a dia. Gosto de usá-las para análises rápidas e detalhadas, com fórmulas avançadas, tabelas dinâmicas e gráficos que organizam as informações de forma prática. Ferramentas versáteis que me ajudam a transformar dados brutos em insights no dia a dia.</p>
+                            <a href="https://cursos.alura.com.br/user/joaopaulosouzamendes11/degree-excel-vba-v51635-51635/certificate" class="card-link">Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h1>Contato</h1>
+            <div class="contact-details">
+                <p><img src="https://img.icons8.com/material-outlined/24/ffffff/email.png" alt="Email Icon"> jotapsmendes@gmail.com</p>
+                <p><img src="https://img.icons8.com/material-outlined/24/ffffff/phone.png" alt="Phone Icon"> (+55) 11 95850-4937</p>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/jo%C3%A3o-mendes-2a7610218/"><img src="C:\Users\marcela.souza\Desktop\portifolio\linkedin_icon.jpg" alt="LinkedIn"></a>
+                <a href="https://github.com/JotaPMendes"><img src="C:\Users\marcela.souza\Desktop\portifolio\githubicon.jpg" alt="GitHub"></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(window).on("scroll", function() {
+            if ($(window).scrollTop() > 50) {
+                $(".navbar").addClass("scrolled");
+            } else {
+                $(".navbar").removeClass("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>
